@@ -16,6 +16,8 @@ public class Alert extends javax.swing.JFrame {
      */
     public Alert() {
         initComponents();
+        
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -121,4 +123,6 @@ public class Alert extends javax.swing.JFrame {
     public void setMensaje(javax.swing.JLabel mensaje) {
         this.mensaje = mensaje;
     }
+    
+   
 }

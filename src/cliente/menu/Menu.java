@@ -13,6 +13,7 @@ import java.io.InputStreamReader;
 import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -25,6 +26,7 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -78,18 +80,12 @@ public class Menu extends javax.swing.JFrame {
         panelLayout.setHorizontalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelLayout.createSequentialGroup()
-                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelLayout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addComponent(saldo))
-                    .addGroup(panelLayout.createSequentialGroup()
-                        .addGap(109, 109, 109)
-                        .addComponent(retiro))
-                    .addGroup(panelLayout.createSequentialGroup()
-                        .addGap(99, 99, 99)
-                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(transferencia)
-                            .addComponent(deposito))))
+                .addGap(81, 81, 81)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(transferencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(deposito, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(retiro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(saldo, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE))
                 .addContainerGap(88, Short.MAX_VALUE))
         );
         panelLayout.setVerticalGroup(
@@ -126,6 +122,14 @@ public class Menu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    ImageIcon imagen1 = new ImageIcon(getClass().getResource("/imagenes/consulta.png"));
+    ImageIcon imagen2 = new ImageIcon(getClass().getResource("/imagenes/retiro.png"));
+    ImageIcon imagen3 = new ImageIcon(getClass().getResource("/imagenes/deposito.png"));
+    ImageIcon imagen4 = new ImageIcon(getClass().getResource("/imagenes/transferencia.png"));
+    ImageIcon imagen5 = new ImageIcon(getClass().getResource("/imagenes/salir.png"));
+
+    
+    
     private void saldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saldoActionPerformed
         
         Saldo saldo = new Saldo();
@@ -183,7 +187,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
     }
-
+ 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton deposito;
     private javax.swing.JPanel panel;
@@ -191,4 +195,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton saldo;
     private javax.swing.JButton transferencia;
     // End of variables declaration//GEN-END:variables
+
+    
 }
