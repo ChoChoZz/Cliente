@@ -5,12 +5,14 @@
  */
 package cliente.menu;
 
+import java.awt.Toolkit;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -102,9 +104,25 @@ public class Saldo extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    
     private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
        String sCuenta = cuenta.getText();
+       
+       Alert alert= new Alert();
+       
+    if(cuenta.getText().trim().length()==0)
+        {
+             JOptionPane.showMessageDialog(this, "El campo de texto está vacío");
+             
+        }    
+    else if (alert.isNumeric(cuenta.getText()) == false ){
+           
+                JOptionPane.showMessageDialog(this," El campo de texto cuenta: "+cuenta.getText()+" no es un numero");
+            }
+       
+     else
+        {
         
         try {
             Socket socket = new Socket("127.0.0.1", 5000);
@@ -115,7 +133,7 @@ public class Saldo extends javax.swing.JFrame {
             DataInputStream in= new DataInputStream(socket.getInputStream());
             System.out.println("aqui en el cliente "+ in.readUTF());
             
-            Alert alert= new Alert();
+          //  Alert alert= new Alert();
             alert.setVisible(true);
             alert.setTexto(in.readUTF());
             
@@ -123,6 +141,8 @@ public class Saldo extends javax.swing.JFrame {
             
         } catch (IOException ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         }
     }//GEN-LAST:event_aceptarActionPerformed
 

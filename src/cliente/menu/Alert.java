@@ -5,6 +5,8 @@
  */
 package cliente.menu;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author marco
@@ -124,5 +126,13 @@ public class Alert extends javax.swing.JFrame {
         this.mensaje = mensaje;
     }
     
-   
+    public boolean isNumeric(String cadena){
+	try {
+		Integer.parseInt(cadena);
+		return true;
+	} catch (NumberFormatException nfe){
+		return false;
+	}
+    }
+
 }

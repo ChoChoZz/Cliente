@@ -9,6 +9,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 import java.io.DataInputStream;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -131,6 +132,29 @@ public class Transferencia extends javax.swing.JFrame {
         String tDestino= destino.getText();
         String tMonto= monto.getText();
         
+        Alert alert= new Alert();
+       
+    if(origen.getText().trim().length()==0 || destino.getText().trim().length()==0 || monto.getText().trim().length()==0)
+        {
+             JOptionPane.showMessageDialog(this, "Llene todos los campos de texto ");
+             
+        }    
+    else if (alert.isNumeric(origen.getText()) == false ){
+           
+                JOptionPane.showMessageDialog(this," El campo de texto origen: "+origen.getText()+" no es un numero");
+            }
+       
+    else if (alert.isNumeric(destino.getText()) == false ){
+           
+                JOptionPane.showMessageDialog(this," El campo de texto destino: "+destino.getText()+" no es un numero");
+            }
+    else if (alert.isNumeric(monto.getText()) == false ){
+           
+                JOptionPane.showMessageDialog(this," El campo de texto monto: "+monto.getText()+" no es un numero");
+            }
+    else
+        {
+        
         try {
             
             Socket socket = new Socket("127.0.0.1", 5000);
@@ -141,7 +165,7 @@ public class Transferencia extends javax.swing.JFrame {
             DataInputStream in= new DataInputStream(socket.getInputStream());
             System.out.println("aqui en el cliente "+in.readUTF());
             
-            Alert alert= new Alert();
+           // Alert alert= new Alert();
             alert.setVisible(true);
             alert.setTexto(in.readUTF());
             
@@ -152,7 +176,7 @@ public class Transferencia extends javax.swing.JFrame {
         catch(IOException ex) {
             ex.printStackTrace();
         }
-        
+        }
     }//GEN-LAST:event_aceptarActionPerformed
 
     /**

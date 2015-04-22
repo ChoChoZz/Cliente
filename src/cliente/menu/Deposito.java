@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -120,6 +121,25 @@ public class Deposito extends javax.swing.JFrame {
         String dCuenta= cuenta.getText();
         String dep=deposito.getText();
         
+        Alert alert= new Alert();
+       
+    if(cuenta.getText().trim().length()==0 || deposito.getText().trim().length()==0)
+        {
+             JOptionPane.showMessageDialog(this, "Llene todos los campos de texto ");
+             
+        }    
+    else if (alert.isNumeric(cuenta.getText()) == false ){
+           
+                JOptionPane.showMessageDialog(this," El campo de texto cuenta: "+cuenta.getText()+" no es un numero");
+            }
+       
+    else if (alert.isNumeric(deposito.getText()) == false ){
+           
+                JOptionPane.showMessageDialog(this," El campo de texto deposito: "+deposito.getText()+" no es un numero");
+            }
+    else
+        {
+        
         try {
             Socket socket = new Socket("127.0.0.1", 5000);
             DataOutputStream message = new DataOutputStream( socket.getOutputStream() );
@@ -129,7 +149,7 @@ public class Deposito extends javax.swing.JFrame {
             DataInputStream in= new DataInputStream(socket.getInputStream());
             
             System.out.println("aqui en el cliente "+ in.readUTF());
-            Alert alert= new Alert();
+            //Alert alert= new Alert();
             alert.setVisible(true);
             alert.setTexto(in.readUTF());
             
@@ -138,7 +158,7 @@ public class Deposito extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(Retiro.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        }
     }//GEN-LAST:event_AceptarDActionPerformed
 
     /**
