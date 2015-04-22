@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 package cliente.menu;
-
+import javax.swing.*;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
@@ -18,9 +18,8 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 
-public class Menu2 extends javax.swing.JFrame{
+public class Menu2 extends JFrame{
 
-    private JFrame Mainframe;
     private JPanel panelBtns ;
     private JButton deposito;
     private JButton retiro;
@@ -35,14 +34,25 @@ public class Menu2 extends javax.swing.JFrame{
     
     public Menu2() {
         init();
+        iniciar();
         this.setLocationRelativeTo(null);
     }
+    
+    private void iniciar() {
+        setBounds(200, 200, 300, 500);
+        setTitle("Sistemas Distribidos");
+        
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.validate();
+        setVisible(true);
+     
+    } 
 
     private void init() {
          // create the main panel
         panelBtns = new JPanel(new BorderLayout());
-        panelBtns.setBounds(200, 200, 700, 500);
-      //  panelBtns.setLayout( new GridLayout(5, 1, 0, 2) );
+        //panelBtns.setBounds(200, 200, 700, 500);
+        panelBtns.setLayout( new GridLayout(5, 1, 0, 2) );
        
 
         //create the botom
@@ -86,8 +96,8 @@ public class Menu2 extends javax.swing.JFrame{
         panelBtns.add( deposito );
         panelBtns.add( transferencia );
         panelBtns.add( Cerrar );
-        panelBtns.setVisible(false);
-        
+        panelBtns.setVisible(true);
+        this.getContentPane().add(panelBtns,BorderLayout.NORTH);
        
         
         // Add Click events
@@ -142,22 +152,13 @@ public class Menu2 extends javax.swing.JFrame{
         transferencia.setForeground(COLOR_BACK_2);
         panelBtns.setBackground(COLOR_BACK_2);
         
-        
-        //add to jframe
-        //Add the componets to main Panel
-        Mainframe.add(panelBtns);
-        //Mainframe.add(panelBtns, BorderLayout.WEST);
- 
-        // Centre the main frame
-       // Mainframe.centrarVent(panelBtns);
-        Mainframe.setVisible(true);
-
+       
     }
 
     //****** VIEW INTERFACE ***************************************
 
     public void closeApplication() {
-        Mainframe.setVisible(false);
+        //Mainframe.setVisible(false);
         System.exit(1);
     }
 
@@ -196,7 +197,7 @@ public class Menu2 extends javax.swing.JFrame{
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Menu().setVisible(true);
+                new Menu2().setVisible(true);
             }
         });
     }
