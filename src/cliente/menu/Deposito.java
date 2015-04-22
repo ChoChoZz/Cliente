@@ -137,6 +137,10 @@ public class Deposito extends javax.swing.JFrame {
            
                 JOptionPane.showMessageDialog(this," El campo de texto deposito: "+deposito.getText()+" no es un numero");
             }
+    else if ("0".equals(dep) ){
+           
+                JOptionPane.showMessageDialog(this," No puedes Depositar $0.00: ");
+        } 
     else
         {
         

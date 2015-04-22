@@ -142,6 +142,10 @@ public class Retiro extends javax.swing.JFrame {
            
                 JOptionPane.showMessageDialog(this," El campo de texto retiro: "+retiro.getText()+" no es un numero");
             }
+    else if ("0".equals(dinero) ){
+           
+                JOptionPane.showMessageDialog(this," No puedes Retirar $0.00: ");
+        }
     else
         {
         

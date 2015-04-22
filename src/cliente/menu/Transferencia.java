@@ -152,6 +152,10 @@ public class Transferencia extends javax.swing.JFrame {
            
                 JOptionPane.showMessageDialog(this," El campo de texto monto: "+monto.getText()+" no es un numero");
             }
+        else if ("0".equals(tMonto) ){
+           
+                JOptionPane.showMessageDialog(this," No puedes Transferir $0.00: ");
+        }
     else
         {
         
