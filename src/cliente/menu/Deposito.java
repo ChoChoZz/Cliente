@@ -150,9 +150,11 @@ public class Deposito extends javax.swing.JFrame {
             
             System.out.println("aqui en el cliente "+ in.readUTF());
             //Alert alert= new Alert();
+            JOptionPane.showMessageDialog(this,"Deposito: "+in.readUTF());
+            /*
             alert.setVisible(true);
             alert.setTexto(in.readUTF());
-            
+            */
             socket.close();
             
         } catch (IOException ex) {

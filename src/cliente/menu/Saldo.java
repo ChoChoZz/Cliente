@@ -133,9 +133,11 @@ public class Saldo extends javax.swing.JFrame {
             DataInputStream in= new DataInputStream(socket.getInputStream());
             System.out.println("aqui en el cliente "+ in.readUTF());
             
+            JOptionPane.showMessageDialog(this,"Saldo: "+in.readUTF());
+            
           //  Alert alert= new Alert();
-            alert.setVisible(true);
-            alert.setTexto(in.readUTF());
+           // alert.setVisible(true);
+          //  alert.setTexto(in.readUTF());
             
             socket.close();
             
