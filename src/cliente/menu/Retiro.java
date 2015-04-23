@@ -152,13 +152,9 @@ public class Retiro extends javax.swing.JFrame {
             message.writeUTF(envio);
             
             DataInputStream in= new DataInputStream(socket.getInputStream());
-            System.out.println("aqui en el cliente "+ in.readUTF());
             
-            JOptionPane.showMessageDialog(this,"Retiro: "+in.readUTF());
-            
-          //  Alert alert= new Alert();
-           // alert.setVisible(true);
-           // alert.setTexto(in.readUTF());
+            JOptionPane.showMessageDialog(this,in.readUTF());
+        
             
             socket.close();
             

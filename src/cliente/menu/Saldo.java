@@ -128,21 +128,16 @@ public class Saldo extends javax.swing.JFrame {
             Socket socket = new Socket("127.0.0.1", 5000);
             DataOutputStream message = new DataOutputStream( socket.getOutputStream());
             message.writeUTF("1@"+sCuenta);
-            System.out.println("envie el mensaje");
             
             DataInputStream in= new DataInputStream(socket.getInputStream());
-            System.out.println("aqui en el cliente "+ in.readUTF());
             
             JOptionPane.showMessageDialog(this,"Saldo: "+in.readUTF());
-            
-          //  Alert alert= new Alert();
-           // alert.setVisible(true);
-          //  alert.setTexto(in.readUTF());
-            
+
             socket.close();
             
         } catch (IOException ex) {
-            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
         
         }

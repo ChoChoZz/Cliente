@@ -148,13 +148,8 @@ public class Deposito extends javax.swing.JFrame {
             
             DataInputStream in= new DataInputStream(socket.getInputStream());
             
-            System.out.println("aqui en el cliente "+ in.readUTF());
-            //Alert alert= new Alert();
-            JOptionPane.showMessageDialog(this,"Deposito: "+in.readUTF());
-            /*
-            alert.setVisible(true);
-            alert.setTexto(in.readUTF());
-            */
+            JOptionPane.showMessageDialog(this,in.readUTF());
+         
             socket.close();
             
         } catch (IOException ex) {
