@@ -141,7 +141,7 @@ public class Deposito extends javax.swing.JFrame {
         {
         
         try {
-            Socket socket = new Socket("127.0.0.1", 5000);
+            Socket socket = new Socket("10.20.1.233", 5000);
             DataOutputStream message = new DataOutputStream( socket.getOutputStream() );
             String envio="3@"+dCuenta+"@"+dep;
             message.writeUTF(envio);
